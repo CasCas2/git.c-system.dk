@@ -1,4 +1,4 @@
-baseURL = "https://cascas2.github.io/git.c-system.dk/"
+baseURL = "https://git.c-system.dk/"
 title   = "Hello Friend NG"
 languageCode = "en-us"
 theme = "hello-friend-ng"

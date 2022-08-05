@@ -8,21 +8,21 @@ Nous allons commencer par créer un nouveau site avec un modèle très basique.<
 $ echo ceci est une commande
 ceci est une commande
 
-## édition d'un fichier
+## édition d&#39;un fichier
 $vi foo.md
 +++
-date = &quot;2014-09-28&quot;
-title = &quot;Création d'un nouveau thème&quot;
+date = &#34;2014-09-28&#34;
+title = &#34;Création d&#39;un nouveau thème&#34;
 +++
 
 Contenu du fichier
 :wq
 
-## L'afficher
+## L&#39;afficher
 $ cat foo.md
 +++
-date = &quot;2014-09-28&quot;
-title = &quot;Création d'un nouveau thème&quot;
+date = &#34;2014-09-28&#34;
+title = &#34;Création d&#39;un nouveau thème&#34;
 +++
 
 Contenu du fichier
@@ -176,18 +176,18 @@ $
 </code></pre><p>Le squelette comprend des modèles (les fichiers se terminant par .html), un fichier de licence, une description de votre thème (le fichier theme.toml) et un archétype vide.</p>
 <p>Prenez une minute pour remplir les fichiers theme.toml et LICENSE.md. Ils sont facultatifs, mais si vous allez distribuer votre thème, il dit au monde qui féliciter (ou blâmer). Il est également agréable de déclarer la licence afin que les gens sachent comment ils peuvent utiliser le thème.</p>
 <pre tabindex="0"><code>$ vi themes/zafta/theme.toml
-author = &quot;michael d henderson&quot;
-description = &quot;Un thème minimal fonctionnel&quot;
-license = &quot;MIT&quot;
-name = &quot;zafta&quot;
-source_repo = &quot;&quot;
-tags = [&quot;tags&quot;, &quot;categories&quot;]
+author = &#34;michael d henderson&#34;
+description = &#34;Un thème minimal fonctionnel&#34;
+license = &#34;MIT&#34;
+name = &#34;zafta&#34;
+source_repo = &#34;&#34;
+tags = [&#34;tags&#34;, &#34;categories&#34;]
 :wq
 
 ## éditez également themes/zafta/LICENSE.md et changez
-## l'emplacement où il est écrit &quot;YOUR_NAME_HERE&quot;
+## l&#39;emplacement où il est écrit &#34;YOUR_NAME_HERE&#34;
 </code></pre><p>Notez que les fichiers du squelette du thème sont vides. Ne vous inquiètez pas, nous allons remédier à cela rapidement.</p>
-<pre tabindex="0"><code>$ find themes/zafta -name '*.html' | xargs ls -l
+<pre tabindex="0"><code>$ find themes/zafta -name &#39;*.html&#39; | xargs ls -l
 -rw-r--r--  1 quoha  staff  0 Sep 29 17:31 themes/zafta/layouts/_default/
                                             list.html
 -rw-r--r--  1 quoha  staff  0 Sep 29 17:31 themes/zafta/layouts/_default/
@@ -203,11 +203,11 @@ $
 <p>Maintenant que nous avons un thème sur lequel travailler, il est judicieux d&rsquo;ajouter le nom du thème au fichier de configuration. Ceci est facultatif, car vous pouvez toujours ajouter &ldquo;-t zafta&rdquo; à toutes vos commandes. J&rsquo;aime mettre le fichier de configuration car j&rsquo;aime les lignes de commande plus courtes. Si vous ne le placez pas dans le fichier de configuration ou ne le spécifiez pas sur la ligne de commande, vous n&rsquo;utiliserez pas le modèle que vous attendez.</p>
 <p>Modifiez le fichier pour ajouter le thème, ajoutez un titre pour le site et spécifiez que tout notre contenu utilisera le format TOML.</p>
 <pre tabindex="0"><code>$ vi config.toml
-theme = &quot;zafta&quot;
-baseurl = &quot;&quot;
-languageCode = &quot;en-us&quot;
-title = &quot;zafta - totally refreshing&quot;
-MetaDataFormat = &quot;toml&quot;
+theme = &#34;zafta&#34;
+baseurl = &#34;&#34;
+languageCode = &#34;en-us&#34;
+title = &#34;zafta - totally refreshing&#34;
+MetaDataFormat = &#34;toml&#34;
 :wq
 
 $
@@ -314,8 +314,8 @@ Watching for changes in /Users/quoha/Sites/zafta/content
 Serving pages from /Users/quoha/Sites/zafta/public
 Web Server is available at http://localhost:1313
 Press Ctrl+C to stop
-INFO: 2014/09/29 File System Event: [&quot;/Users/quoha/Sites/zafta/themes/zafta/
-                                        layouts/index.html&quot;: MODIFY|ATTRIB]
+INFO: 2014/09/29 File System Event: [&#34;/Users/quoha/Sites/zafta/themes/zafta/
+                                        layouts/index.html&#34;: MODIFY|ATTRIB]
 Change detected, rebuilding site
 
 WARN: 2014/09/29 Unable to locate layout: [404.html theme/404.html]
@@ -360,7 +360,7 @@ WARN: 2014/09/29 Unable to locate layout: [404.html theme/404.html]
 0 categories created
 in 2 ms
 
-$ find public -type f -name '*.html' | xargs ls -l
+$ find public -type f -name &#39;*.html&#39; | xargs ls -l
 -rw-r--r--  1 quoha  staff  78 Sep 29 21:26 public/index.html
 
 $ cat public/index.html
@@ -376,10 +376,10 @@ $ cat public/index.html
 &lt;html&gt;
 &lt;body&gt;
   &lt;p&gt;hugo dit bonjour!&lt;/p&gt;
-&lt;script&gt;document.write('&lt;script src=&quot;http://'
-        + (location.host || 'localhost').split(':')[0]
-    + ':1313/livereload.js?mindelay=10&quot;&gt;&lt;/'
-        + 'script&gt;')&lt;/script&gt;&lt;/body&gt;
+&lt;script&gt;document.write(&#39;&lt;script src=&#34;http://&#39;
+        + (location.host || &#39;localhost&#39;).split(&#39;:&#39;)[0]
+    + &#39;:1313/livereload.js?mindelay=10&#34;&gt;&lt;/&#39;
+        + &#39;script&gt;&#39;)&lt;/script&gt;&lt;/body&gt;
 &lt;/html&gt;
 </code></pre><p>Lorsque vous utilisez <code>--watch</code>, le script de rechargement automatique est ajouté par Hugo. Renseignez-vous dans la documentation avec les termes <em>live reload</em> pour voir qu&rsquo;est-ce qu&rsquo;il fait et comment le désactiver.</p>
 <h3 id="créer-une-page-daccueil-dynamique">Créer une page d&rsquo;accueil &ldquo;dynamique&rdquo;</h3>
@@ -399,7 +399,7 @@ $
 <p>La commande &ldquo;new&rdquo; utilise un archétype pour créer le fichier de l&rsquo;article. Hugo crée un fichier d&rsquo;archétype vide par défault, mais cela provoque une erreur lorsqu&rsquo;il y a un thème. Pour moi, la solution était de créer un fichier d&rsquo;archétype spécifiquement pour le type article.</p>
 <pre tabindex="0"><code>$ vi themes/zafta/archetypes/post.md
 +++
-Description = &quot;&quot;
+Description = &#34;&#34;
 Tags = []
 Categories = []
 +++
@@ -433,10 +433,10 @@ total 16
 $ cat content/post/premier.md
 +++
 Categories = []
-Description = &quot;&quot;
+Description = &#34;&#34;
 Tags = []
-date = &quot;2014-09-29T21:54:53-05:00&quot;
-title = &quot;premier&quot;
+date = &#34;2014-09-29T21:54:53-05:00&#34;
+title = &#34;premier&#34;
 
 +++
 Mon permier article
@@ -444,10 +444,10 @@ Mon permier article
 $ cat content/post/second.md
 +++
 Categories = []
-Description = &quot;&quot;
+Description = &#34;&#34;
 Tags = []
-date = &quot;2014-09-29T21:57:09-05:00&quot;
-title = &quot;second&quot;
+date = &#34;2014-09-29T21:57:09-05:00&#34;
+title = &#34;second&#34;
 
 +++
 Mon second article
@@ -461,8 +461,8 @@ INFO: 2014/09/29 syncing from /Users/quoha/Sites/zafta/themes/zafta/static/ to
     /Users/quoha/Sites/zafta/public/
 INFO: 2014/09/29 syncing from /Users/quoha/Sites/zafta/static/ to
     /Users/quoha/Sites/zafta/public/
-INFO: 2014/09/29 found taxonomies: map[string]string{&quot;category&quot;:&quot;categories&quot;,
-                                                    &quot;tag&quot;:&quot;tags&quot;}
+INFO: 2014/09/29 found taxonomies: map[string]string{&#34;category&#34;:&#34;categories&#34;,
+                                                    &#34;tag&#34;:&#34;tags&#34;}
 WARN: 2014/09/29 Unable to locate layout: [404.html theme/404.html]
 0 draft content
 0 future content
@@ -472,7 +472,7 @@ WARN: 2014/09/29 Unable to locate layout: [404.html theme/404.html]
 in 4 ms
 $
 </code></pre><p>La sortie annonce qu&rsquo;il a créé 2 pages. Ce sont nos nouveaux articles:</p>
-<pre tabindex="0"><code>$ find public -type f -name '*.html' | xargs ls -l
+<pre tabindex="0"><code>$ find public -type f -name &#39;*.html&#39; | xargs ls -l
 -rw-r--r--  1 quoha  staff  78 Sep 29 22:13 public/index.html
 -rw-r--r--  1 quoha  staff   0 Sep 29 22:13 public/post/premier/index.html
 -rw-r--r--  1 quoha  staff   0 Sep 29 22:13 public/post/index.html
@@ -514,8 +514,8 @@ INFO: 2014/09/29 syncing from /Users/quoha/Sites/zafta/themes/zafta/static/ to
     /Users/quoha/Sites/zafta/public/
 INFO: 2014/09/29 syncing from /Users/quoha/Sites/zafta/static/ to
     /Users/quoha/Sites/zafta/public/
-INFO: 2014/09/29 found taxonomies: map[string]string{&quot;tag&quot;:&quot;tags&quot;,
-                                                    &quot;category&quot;:&quot;categories&quot;}
+INFO: 2014/09/29 found taxonomies: map[string]string{&#34;tag&#34;:&#34;tags&#34;,
+                                                    &#34;category&#34;:&#34;categories&#34;}
 WARN: 2014/09/29 Unable to locate layout: [404.html theme/404.html]
 0 draft content
 0 future content
@@ -523,7 +523,7 @@ WARN: 2014/09/29 Unable to locate layout: [404.html theme/404.html]
 0 tags created
 0 categories created
 in 4 ms
-$ find public -type f -name '*.html' | xargs ls -l
+$ find public -type f -name &#39;*.html&#39; | xargs ls -l
 -rw-r--r--  1 quoha  staff  94 Sep 29 22:23 public/index.html
 -rw-r--r--  1 quoha  staff   0 Sep 29 22:23 public/post/premier/index.html
 -rw-r--r--  1 quoha  staff   0 Sep 29 22:23 public/post/index.html
@@ -574,8 +574,8 @@ INFO: 2014/09/29 syncing from /Users/quoha/Sites/zafta/themes/zafta/static/ to
     /Users/quoha/Sites/zafta/public/
 INFO: 2014/09/29 syncing from /Users/quoha/Sites/zafta/static/ to
     /Users/quoha/Sites/zafta/public/
-INFO: 2014/09/29 found taxonomies: map[string]string{&quot;tag&quot;:&quot;tags&quot;,
-                                                    &quot;category&quot;:&quot;categories&quot;}
+INFO: 2014/09/29 found taxonomies: map[string]string{&#34;tag&#34;:&#34;tags&#34;,
+                                                    &#34;category&#34;:&#34;categories&#34;}
 WARN: 2014/09/29 Unable to locate layout: [404.html theme/404.html]
 0 draft content
 0 future content
@@ -584,7 +584,7 @@ WARN: 2014/09/29 Unable to locate layout: [404.html theme/404.html]
 0 categories created
 in 4 ms
 
-$ find public -type f -name '*.html' | xargs ls -l
+$ find public -type f -name &#39;*.html&#39; | xargs ls -l
 -rw-r--r--  1 quoha  staff   94 Sep 29 22:40 public/index.html
 -rw-r--r--  1 quoha  staff  125 Sep 29 22:40 public/post/premier/index.html
 -rw-r--r--  1 quoha  staff    0 Sep 29 22:40 public/post/index.html
@@ -624,7 +624,7 @@ $
 &lt;html&gt;
 &lt;body&gt;
   {{ range first 10 .Data.Pages }}
-    &lt;h1&gt;&lt;a href=&quot;{{ .Permalink }}&quot;&gt;{{ .Title }}&lt;/a&gt;&lt;/h1&gt;
+    &lt;h1&gt;&lt;a href=&#34;{{ .Permalink }}&#34;&gt;{{ .Title }}&lt;/a&gt;&lt;/h1&gt;
   {{ end }}
 &lt;/body&gt;
 &lt;/html&gt;
@@ -636,8 +636,8 @@ INFO: 2014/09/29 syncing from /Users/quoha/Sites/zafta/themes/zafta/static/ to
     /Users/quoha/Sites/zafta/public/
 INFO: 2014/09/29 syncing from /Users/quoha/Sites/zafta/static/ to
     /Users/quoha/Sites/zafta/public/
-INFO: 2014/09/29 found taxonomies: map[string]string{&quot;tag&quot;:&quot;tags&quot;,
-                                                    &quot;category&quot;:&quot;categories&quot;}
+INFO: 2014/09/29 found taxonomies: map[string]string{&#34;tag&#34;:&#34;tags&#34;,
+                                                    &#34;category&#34;:&#34;categories&#34;}
 WARN: 2014/09/29 Unable to locate layout: [404.html theme/404.html]
 0 draft content
 0 future content
@@ -646,7 +646,7 @@ WARN: 2014/09/29 Unable to locate layout: [404.html theme/404.html]
 0 categories created
 in 4 ms
 
-$ find public -type f -name '*.html' | xargs ls -l
+$ find public -type f -name &#39;*.html&#39; | xargs ls -l
 -rw-r--r--  1 quoha  staff  149 Sep 29 22:44 public/index.html
 -rw-r--r--  1 quoha  staff  125 Sep 29 22:44 public/post/premier/index.html
 -rw-r--r--  1 quoha  staff    0 Sep 29 22:44 public/post/index.html
@@ -657,9 +657,9 @@ $ cat public/index.html
 &lt;html&gt;
 &lt;body&gt;
 
-    &lt;h1&gt;&lt;a href=&quot;/post/second/&quot;&gt;second&lt;/a&gt;&lt;/h1&gt;
+    &lt;h1&gt;&lt;a href=&#34;https://git.c-system.dk/post/second/&#34;&gt;second&lt;/a&gt;&lt;/h1&gt;
 
-    &lt;h1&gt;&lt;a href=&quot;/post/premier/&quot;&gt;premier&lt;/a&gt;&lt;/h1&gt;
+    &lt;h1&gt;&lt;a href=&#34;https://git.c-system.dk/post/premier/&#34;&gt;premier&lt;/a&gt;&lt;/h1&gt;
 
 &lt;/body&gt;
 &lt;/html&gt;
@@ -677,18 +677,18 @@ $
 <p>La valeur par défaut de Hugo consiste à utiliser la structure du répertoire content/ pour guider l&rsquo;emplacement du HTML généré dans le répertoire public/. Vérifions cela en créant une page &ldquo;à propos&rdquo; (about dans l&rsquo;exemple) au plus haut niveau:</p>
 <pre tabindex="0"><code>$ vi content/about.md
 +++
-title = &quot;about&quot;
-description = &quot;about this site&quot;
-date = &quot;2014-09-27&quot;
-slug = &quot;about time&quot;
+title = &#34;about&#34;
+description = &#34;about this site&#34;
+date = &#34;2014-09-27&#34;
+slug = &#34;about time&#34;
 +++
 
 ## about us
 
-i'm speechless
+i&#39;m speechless
 :wq
 </code></pre><p>Générez le site web et vérifiez le résultat.</p>
-<pre tabindex="0"><code>$ find public -name '*.html' | xargs ls -l
+<pre tabindex="0"><code>$ find public -name &#39;*.html&#39; | xargs ls -l
 -rw-rw-r--  1 mdhender  staff   334 Sep 27 15:08 public/about-time/index.html
 -rw-rw-r--  1 mdhender  staff   527 Sep 27 15:08 public/index.html
 -rw-rw-r--  1 mdhender  staff   358 Sep 27 15:08 public/post/premier-post/
@@ -702,15 +702,15 @@ i'm speechless
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;body&gt;
-    &lt;h1&gt;&lt;a href=&quot;http://localhost:1313/post/theme/&quot;&gt;
+    &lt;h1&gt;&lt;a href=&#34;http://localhost:1313/post/theme/&#34;&gt;
         creating a new theme&lt;/a&gt;&lt;/h1&gt;
-    &lt;h1&gt;&lt;a href=&quot;http://localhost:1313/about-time/&quot;&gt;about&lt;/a&gt;&lt;/h1&gt;
-    &lt;h1&gt;&lt;a href=&quot;http://localhost:1313/post/second-post/&quot;&gt;second&lt;/a&gt;&lt;/h1&gt;
-    &lt;h1&gt;&lt;a href=&quot;http://localhost:1313/post/premier-post/&quot;&gt;first&lt;/a&gt;&lt;/h1&gt;
-&lt;script&gt;document.write('&lt;script src=&quot;http://'
-        + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10&quot;&gt;&lt;/'
-        + 'script&gt;')&lt;/script&gt;&lt;/body&gt;
+    &lt;h1&gt;&lt;a href=&#34;http://localhost:1313/about-time/&#34;&gt;about&lt;/a&gt;&lt;/h1&gt;
+    &lt;h1&gt;&lt;a href=&#34;http://localhost:1313/post/second-post/&#34;&gt;second&lt;/a&gt;&lt;/h1&gt;
+    &lt;h1&gt;&lt;a href=&#34;http://localhost:1313/post/premier-post/&#34;&gt;first&lt;/a&gt;&lt;/h1&gt;
+&lt;script&gt;document.write(&#39;&lt;script src=&#34;http://&#39;
+        + (location.host || &#39;localhost&#39;).split(&#39;:&#39;)[0]
+		+ &#39;:1313/livereload.js?mindelay=10&#34;&gt;&lt;/&#39;
+        + &#39;script&gt;&#39;)&lt;/script&gt;&lt;/body&gt;
 &lt;/html&gt;
 </code></pre><p>Notez que le liens vers &ldquo;about&rdquo; est listé avec les articles. Ce n&rsquo;était l&rsquo;effet désire, corrigeons donc cela d&rsquo;abord.</p>
 <pre tabindex="0"><code>$ vi themes/zafta/layouts/index.html
@@ -719,15 +719,15 @@ i'm speechless
 &lt;body&gt;
   &lt;h1&gt;articles&lt;/h1&gt;
   {{ range first 10 .Data.Pages }}
-    {{ if eq .Type &quot;post&quot;}}
-      &lt;h2&gt;&lt;a href=&quot;{{ .Permalink }}&quot;&gt;{{ .Title }}&lt;/a&gt;&lt;/h2&gt;
+    {{ if eq .Type &#34;post&#34;}}
+      &lt;h2&gt;&lt;a href=&#34;{{ .Permalink }}&#34;&gt;{{ .Title }}&lt;/a&gt;&lt;/h2&gt;
     {{ end }}
   {{ end }}
 
   &lt;h1&gt;pages&lt;/h1&gt;
   {{ range .Data.Pages }}
-    {{ if eq .Type &quot;page&quot; }}
-      &lt;h2&gt;&lt;a href=&quot;{{ .Permalink }}&quot;&gt;{{ .Title }}&lt;/a&gt;&lt;/h2&gt;
+    {{ if eq .Type &#34;page&#34; }}
+      &lt;h2&gt;&lt;a href=&#34;{{ .Permalink }}&#34;&gt;{{ .Title }}&lt;/a&gt;&lt;/h2&gt;
     {{ end }}
   {{ end }}
 &lt;/body&gt;
@@ -735,7 +735,7 @@ i'm speechless
 :wq
 </code></pre><p>Générez le site web et vérifiez le résultat. La page d&rsquo;accueil a deux sections, articles et pages, et chaque section contient le bon ensemble de lien</p>
 <p>Mais la page &ldquo;à propos&rdquo; est toujours rendue dans about-time/index.html.</p>
-<pre tabindex="0"><code>$ find public -name '*.html' | xargs ls -l
+<pre tabindex="0"><code>$ find public -name &#39;*.html&#39; | xargs ls -l
 -rw-rw-r--  1 mdhender  staff    334 Sep 27 15:33 public/about-time/index.html
 -rw-rw-r--  1 mdhender  staff    645 Sep 27 15:33 public/index.html
 -rw-rw-r--  1 mdhender  staff    358 Sep 27 15:33 public/post/premier-post/
@@ -746,8 +746,8 @@ i'm speechless
 </code></pre><p>Sachant que Hugo utilise le slug pour générer les noms des fichiers, la solution la plus simple serait de changer le slug. Utilisons la manière forte et changeons le lien permanent dans la configuration.</p>
 <pre tabindex="0"><code>$ vi config.toml
 [permalinks]
-	page = &quot;/:title/&quot;
-	about = &quot;/:filename/&quot;
+	page = &#34;/:title/&#34;
+	about = &#34;/:filename/&#34;
 </code></pre><p>Générez le site web et vérifiez que cela ne fonctionne pas. Hugo laisse le slug ou l&rsquo;URL outrepasser l&rsquo;option des liens permanents dans le fichier de configuration. Commentez le slug dans content/about.md, puis générez le site web pour qu&rsquo;elle soit générée au bon endroit.</p>
 <h2 id="partager-des-modèles">Partager des modèles</h2>
 <p>Si vous avez suivi, vous avez sûrement remarqué que les articles ont un titre dans le navigateur et pas la page d&rsquo;accueil. C&rsquo;est parce que nous n&rsquo;avons pas mis de titre dans le modèle de la page d&rsquo;accueil (layout/index.html). C&rsquo;est quelque chose de facile, mais utilisons une option différente.</p>
@@ -769,56 +769,56 @@ $ vi themes/zafta/layouts/partials/footer.html
 :wq
 </code></pre><h3 id="modification-du-modèle-de-page-daccueil-pour-utiliser-les-modèles-partiels">Modification du modèle de page d&rsquo;accueil pour utiliser les modèles partiels</h3>
 <p>La différence notable entre un appel d&rsquo;un modèle et celui d&rsquo;un modèle partiel est le manque de chemin:</p>
-<pre tabindex="0"><code>{{ template &quot;theme/partials/header.html&quot; . }}
+<pre tabindex="0"><code>{{ template &#34;theme/partials/header.html&#34; . }}
 </code></pre><p>versus</p>
-<pre tabindex="0"><code>{{ partial &quot;header.html&quot; . }}
+<pre tabindex="0"><code>{{ partial &#34;header.html&#34; . }}
 </code></pre><p>Les deux passent dans le contexte.</p>
 <p>Changeons le modèle de la page d&rsquo;accueil pour utiliser ces nouveaux modèles partiels.</p>
 <pre tabindex="0"><code>$ vi themes/zafta/layouts/index.html
-{{ partial &quot;header.html&quot; . }}
+{{ partial &#34;header.html&#34; . }}
 
   &lt;h1&gt;articles&lt;/h1&gt;
   {{ range first 10 .Data.Pages }}
-    {{ if eq .Type &quot;post&quot;}}
-      &lt;h2&gt;&lt;a href=&quot;{{ .Permalink }}&quot;&gt;{{ .Title }}&lt;/a&gt;&lt;/h2&gt;
+    {{ if eq .Type &#34;post&#34;}}
+      &lt;h2&gt;&lt;a href=&#34;{{ .Permalink }}&#34;&gt;{{ .Title }}&lt;/a&gt;&lt;/h2&gt;
     {{ end }}
   {{ end }}
 
   &lt;h1&gt;pages&lt;/h1&gt;
   {{ range .Data.Pages }}
-    {{ if or (eq .Type &quot;page&quot;) (eq .Type &quot;about&quot;) }}
-      &lt;h2&gt;&lt;a href=&quot;{{ .Permalink }}&quot;&gt;{{ .Type }} -
+    {{ if or (eq .Type &#34;page&#34;) (eq .Type &#34;about&#34;) }}
+      &lt;h2&gt;&lt;a href=&#34;{{ .Permalink }}&#34;&gt;{{ .Type }} -
         {{ .Title }} - {{ .RelPermalink }}&lt;/a&gt;&lt;/h2&gt;
     {{ end }}
   {{ end }}
 
-{{ partial &quot;footer.html&quot; . }}
+{{ partial &#34;footer.html&#34; . }}
 :wq
 </code></pre><p>Générez le site web et vérifiez le résultat. Le titre sur la page d&rsquo;accueil est maintenant &ldquo;your title here&rdquo;, qui de la variable &ldquo;title&rdquo; dans la fichier config.toml.</p>
 <h3 id="modification-du-modèle-simple-par-défaut-pour-utiliser-les-modèles-partiels">Modification du modèle simple par défaut pour utiliser les modèles partiels</h3>
 <pre tabindex="0"><code>$ vi themes/zafta/layouts/_default/single.html
-{{ partial &quot;header.html&quot; . }}
+{{ partial &#34;header.html&#34; . }}
 
   &lt;h1&gt;{{ .Title }}&lt;/h1&gt;
   {{ .Content }}
 
-{{ partial &quot;footer.html&quot; . }}
+{{ partial &#34;footer.html&#34; . }}
 :wq
 </code></pre><p>Générez le site web et vérifiez le résultat. Le titre sur les articles et la page &ldquo;a propos&rdquo; devrait tout les deux refléter la valeur présente dans le fichier markdown.</p>
 <h2 id="ajouter-la-date-de-publication-des-articles">Ajouter la &ldquo;Date de publication&rdquo; des articles</h2>
 <p>Il est commun de voir la date à laquelle un article a été écrit ou publié, donc ajoutons cela. La section liminaire de notre article possède une variable nommée &ldquo;date&rdquo;. C&rsquo;est généralement la date de la création du contenu, mais supposons que c&rsquo;est la valeur que nous souhaitons afficher.</p>
 <h3 id="ajouter-la-date-de-publication-au-modèle">Ajouter la &ldquo;Date de publication&rdquo; au modèle</h3>
 <p>Nous allons commencer par modifier le modèle utilisé pour rendre les articles. Le code du modèle ressemblera à cela:</p>
-<pre tabindex="0"><code>{{ .Date.Format &quot;Mon, Jan 2, 2006&quot; }}
+<pre tabindex="0"><code>{{ .Date.Format &#34;Mon, Jan 2, 2006&#34; }}
 </code></pre><p>Les articles utilisent le modèle simple par défaut, donc nous modifierons ce fichier.</p>
 <pre tabindex="0"><code>$ vi themes/zafta/layouts/_default/single.html
-{{ partial &quot;header.html&quot; . }}
+{{ partial &#34;header.html&#34; . }}
 
   &lt;h1&gt;{{ .Title }}&lt;/h1&gt;
-  &lt;h2&gt;{{ .Date.Format &quot;Mon, Jan 2, 2006&quot; }}&lt;/h2&gt;
+  &lt;h2&gt;{{ .Date.Format &#34;Mon, Jan 2, 2006&#34; }}&lt;/h2&gt;
   {{ .Content }}
 
-{{ partial &quot;footer.html&quot; . }}
+{{ partial &#34;footer.html&#34; . }}
 :wq
 </code></pre><p>Générez le site web et vérifiez le résultat. Les articles ont maintenant la date affiché. Mais il y a un problème, la page &ldquo;a propos&rdquo; a également la date d&rsquo;affichée.</p>
 <p>Comme d&rsquo;habiture, il y a différent moyens d&rsquo;afficher la date seulement sur les articles. Nous pourrions utiliser un &ldquo;if&rdquo; comme nous l&rsquo;avons fait sur la page d&rsquo;accueil. Une autre méthode serait de créer un modèle séparer pour les articles.</p>
@@ -827,24 +827,23 @@ $ vi themes/zafta/layouts/partials/footer.html
 <p>Restaurons le modèle simple par défaut avant d&rsquo;oublier.</p>
 <pre tabindex="0"><code>$ mkdir themes/zafta/layouts/post
 $ vi themes/zafta/layouts/_default/single.html
-{{ partial &quot;header.html&quot; . }}
+{{ partial &#34;header.html&#34; . }}
 
   &lt;h1&gt;{{ .Title }}&lt;/h1&gt;
   {{ .Content }}
 
-{{ partial &quot;footer.html&quot; . }}
+{{ partial &#34;footer.html&#34; . }}
 :wq
 </code></pre><p>Maintenant, nous allons modifier le modèle simple des articles. Si vous vous souvenez des règles d&rsquo;Hugo, le moteur de modèles va utiliser cette version à la place de celle par défaut.</p>
 <pre tabindex="0"><code>$ vi themes/zafta/layouts/post/single.html
-{{ partial &quot;header.html&quot; . }}
+{{ partial &#34;header.html&#34; . }}
 
   &lt;h1&gt;{{ .Title }}&lt;/h1&gt;
-  &lt;h2&gt;{{ .Date.Format &quot;Mon, Jan 2, 2006&quot; }}&lt;/h2&gt;
+  &lt;h2&gt;{{ .Date.Format &#34;Mon, Jan 2, 2006&#34; }}&lt;/h2&gt;
   {{ .Content }}
 
-{{ partial &quot;footer.html&quot; . }}
+{{ partial &#34;footer.html&#34; . }}
 :wq
-
 </code></pre><p>Notez que nous retirons la logique de la date dans le modèle par défaut et que nous la plaçons dans le modèle des articles. Générez le site web et vérifiez le résultat. Les articles ont leur dates et la page &ldquo;a propos&rdquo; non.</p>
 <h3 id="ne-répètez-pas-cela-vous-même">Ne répètez pas cela vous-même</h3>
 <p>DRY (Don&rsquo;t Repeat Yourself) est un bon objectif de conception et Hugo fait du bon boulot pour supporter cette idée. Une partie de l&rsquo;art du bon modèle est de savoir quand il faut ajouter un nouveau modèle ou quand il faut modifier un existant. Avant de saisir complétement ce principe, faites vous à l&rsquo;idée que vous allez devoir faire de la refactorisation. Hugo rend cela facile et rapide, il est donc préférable de diviser un modèle.</p>
@@ -953,7 +952,7 @@ fonctions.</p>
 <pre><code>{{ .Params.bar }}
 </code></pre>
 <p><strong>Les parenthèses peuvent être utilisées pour grouper des éléments ensemble</strong></p>
-<pre tabindex="0"><code>{{ if or (isset .Params &quot;alt&quot;) (isset .Params &quot;caption&quot;) }} Caption {{ end }}
+<pre tabindex="0"><code>{{ if or (isset .Params &#34;alt&#34;) (isset .Params &#34;caption&#34;) }} Caption {{ end }}
 </code></pre><h2 id="variables">Variables</h2>
 <p>Chaque modèle go a une structure (objet) mis à sa disposition. Avec Hugo, à
 chaque modèle est passé soit une page, soit une structure de nœud, suivant quel
@@ -1029,8 +1028,8 @@ avec <code>end</code>.</p>
 {{ end }}
 </code></pre>
 <p><strong>Exemple 3: And &amp; Or</strong></p>
-<pre tabindex="0"><code>{{ if and (or (isset .Params &quot;title&quot;) (isset .Params &quot;caption&quot;))
-    (isset .Params &quot;attr&quot;)}}
+<pre tabindex="0"><code>{{ if and (or (isset .Params &#34;title&#34;) (isset .Params &#34;caption&#34;))
+    (isset .Params &#34;attr&#34;)}}
 </code></pre><p><strong>Exemple 4: With</strong></p>
 <p>Une manière alternative d&rsquo;écrire un &ldquo;if&rdquo; et de référencer cette même valeur est
 d&rsquo;utiliser &ldquo;with&rdquo;. Cela permet de remplacer le contexte <code>.</code> par cet valeur et
@@ -1069,13 +1068,13 @@ illustration de la façon d&rsquo;utiliser les tuyaux.</p>
 </code></pre>
 <p>Accès au paramètre de page nommé &ldquo;disqus_url&rdquo; et échappement du HTML</p>
 <p><strong>Exemple 3 :</strong></p>
-<pre tabindex="0"><code>{{ if or (or (isset .Params &quot;title&quot;) (isset .Params &quot;caption&quot;))
-    (isset .Params &quot;attr&quot;)}}
+<pre tabindex="0"><code>{{ if or (or (isset .Params &#34;title&#34;) (isset .Params &#34;caption&#34;))
+    (isset .Params &#34;attr&#34;)}}
 Stuff Here
 {{ end }}
 </code></pre><p>Peut être réécrit en</p>
-<pre tabindex="0"><code>{{  isset .Params &quot;caption&quot; | or isset .Params &quot;title&quot; |
-    or isset .Params &quot;attr&quot; | if }}
+<pre tabindex="0"><code>{{  isset .Params &#34;caption&#34; | or isset .Params &#34;title&#34; |
+    or isset .Params &#34;attr&#34; | if }}
 Stuff Here
 {{ end }}
 </code></pre><h2 id="contexte-alias-le-point">Contexte (alias. le point)</h2>
@@ -1089,7 +1088,7 @@ judicieux d&rsquo;y définir comme variable au lieu de dépendre du contexte.</p
 <p><strong>Exemple:</strong></p>
 <pre tabindex="0"><code>{{ $title := .Site.Title }}
 {{ range .Params.tags }}
-&lt;li&gt; &lt;a href=&quot;{{ $baseurl }}/tags/{{ . | urlize }}&quot;&gt;
+&lt;li&gt; &lt;a href=&#34;{{ $baseurl }}/tags/{{ . | urlize }}&#34;&gt;
     {{ . }}&lt;/a&gt; - {{ $title }} &lt;/li&gt;
 {{ end }}
 </code></pre><p>Notez que, une fois que nous sommes entrés dans la boucle, la valeur de
@@ -1112,11 +1111,11 @@ dans notre section liminaire de quelques pages pour désactiver la table des
 matières.</p>
 <p>Ceci est un exemple de section liminaire :</p>
 <pre tabindex="0"><code>---
-title: &quot;Permalinks&quot;
-date: &quot;2013-11-18&quot;
+title: &#34;Permalinks&#34;
+date: &#34;2013-11-18&#34;
 aliases:
-  - &quot;/doc/permalinks/&quot;
-groups: [&quot;extras&quot;]
+  - &#34;/doc/permalinks/&#34;
+groups: [&#34;extras&#34;]
 groups_weight: 30
 notoc: true
 ---
@@ -1131,31 +1130,31 @@ notoc: true
 <p>Dans votre configuration de plus haut niveau (ex <code>config.yaml</code>), vous pouvez
 définir des paramètres de site, dont les valeurs vous seront accessibles.</p>
 <p>Pour les instances, vous pourriez délarer :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">params</span>:
-  <span style="color:#f92672">CopyrightHTML</span>: <span style="color:#e6db74">&#34;Copyright &amp;#xA9; 2013 John Doe. All Rights Reserved.&#34;</span>
-  <span style="color:#f92672">TwitterUser</span>: <span style="color:#e6db74">&#34;spf13&#34;</span>
-  <span style="color:#f92672">SidebarRecentLimit</span>: <span style="color:#ae81ff">5</span>
-</code></pre></div><p>Avec un pied de page, vous devriez déclarer un <code>&lt;footer&gt;</code> qui est affiché
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">params</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">CopyrightHTML</span>: <span style="color:#e6db74">&#34;Copyright &amp;#xA9; 2013 John Doe. All Rights Reserved.&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">TwitterUser</span>: <span style="color:#e6db74">&#34;spf13&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">SidebarRecentLimit</span>: <span style="color:#ae81ff">5</span>
+</span></span></code></pre></div><p>Avec un pied de page, vous devriez déclarer un <code>&lt;footer&gt;</code> qui est affiché
 seulement si le paramètre <code>CopyrightHTML</code> est déclaré, et si il l&rsquo;est, vous
 devriez le déclarer comme HTML-safe, afin d&rsquo;éviter d&rsquo;échapper les entités HTML.
 Cela vous permettra de le modifier facilement dans votre configuration au lieu
 de le chercher dans votre modèle.</p>
 <pre tabindex="0"><code>{{if .Site.Params.CopyrightHTML}}&lt;footer&gt;
-&lt;div class=&quot;text-center&quot;&gt;{{.Site.Params.CopyrightHTML | safeHtml}}&lt;/div&gt;
+&lt;div class=&#34;text-center&#34;&gt;{{.Site.Params.CopyrightHTML | safeHtml}}&lt;/div&gt;
 &lt;/footer&gt;{{end}}
 </code></pre><p>Une alternative au &ldquo;if&rdquo; et d&rsquo;appeler la même valeur est d&rsquo;utiliser &ldquo;with&rdquo;. Cela
 modifiera le contexte et passera le bloc si la variable est absente :</p>
-<pre tabindex="0"><code>{{with .Site.Params.TwitterUser}}&lt;span class=&quot;twitter&quot;&gt;
-&lt;a href=&quot;https://twitter.com/{{.}}&quot; rel=&quot;author&quot;&gt;
-&lt;img src=&quot;/images/twitter.png&quot; width=&quot;48&quot; height=&quot;48&quot; title=&quot;Twitter: {{.}}&quot;
- alt=&quot;Twitter&quot;&gt;&lt;/a&gt;
+<pre tabindex="0"><code>{{with .Site.Params.TwitterUser}}&lt;span class=&#34;twitter&#34;&gt;
+&lt;a href=&#34;https://twitter.com/{{.}}&#34; rel=&#34;author&#34;&gt;
+&lt;img src=&#34;https://git.c-system.dk/images/twitter.png&#34; width=&#34;48&#34; height=&#34;48&#34; title=&#34;Twitter: {{.}}&#34;
+ alt=&#34;Twitter&#34;&gt;&lt;/a&gt;
 &lt;/span&gt;{{end}}
 </code></pre><p>Enfin, si vous souhaitez extraire des &ldquo;constantes magiques&rdquo; de vos mises en
 page, vous pouvez le faire comme dans l&rsquo;exemple suivant :</p>
-<pre tabindex="0"><code>&lt;nav class=&quot;recent&quot;&gt;
+<pre tabindex="0"><code>&lt;nav class=&#34;recent&#34;&gt;
   &lt;h1&gt;Recent Posts&lt;/h1&gt;
   &lt;ul&gt;{{range first .Site.Params.SidebarRecentLimit .Site.Recent}}
-    &lt;li&gt;&lt;a href=&quot;{{.RelPermalink}}&quot;&gt;{{.Title}}&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;{{.RelPermalink}}&#34;&gt;{{.Title}}&lt;/a&gt;&lt;/li&gt;
   {{end}}&lt;/ul&gt;
 &lt;/nav&gt;
 </code></pre>]]></content></item><item><title>Migrer vers Hugo depuis Jekyll</title><link>https://git.c-system.dk/fr/posts/2014/03/migrer-vers-hugo-depuis-jekyll/</link><pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate><guid>https://git.c-system.dk/fr/posts/2014/03/migrer-vers-hugo-depuis-jekyll/</guid><description>&lt;h2 id="déplacez-le-contenu-statique-vers-static">Déplacez le contenu statique vers &lt;code>static&lt;/code>&lt;/h2>
@@ -1241,9 +1240,9 @@ la même chose.</p>
     // Patterns
     IMAGE_URL_WITH_CLASS_AND_CAPTION =
     IMAGE_URL_WITH_CLASS_AND_CAPTION_AND_LINK =
-        /(\w+)(\s+)((https?:\/\/|\/)(\S+))(\s+)&quot;(.*?)&quot;(\s+)-&gt;
+        /(\w+)(\s+)((https?:\/\/|\/)(\S+))(\s+)&#34;(.*?)&#34;(\s+)-&gt;
         ((https?:\/\/|\/)(\S+))(\s*)/i
-    IMAGE_URL_WITH_CAPTION = /((https?:\/\/|\/)(\S+))(\s+)&quot;(.*?)&quot;/i
+    IMAGE_URL_WITH_CAPTION = /((https?:\/\/|\/)(\S+))(\s+)&#34;(.*?)&#34;/i
     IMAGE_URL_WITH_CLASS = /(\w+)(\s+)((https?:\/\/|\/)(\S+))/i
     IMAGE_URL = /((https?:\/\/|\/)(\S+))/i
     def initialize(tag_name, markup, tokens)
@@ -1269,45 +1268,45 @@ la même chose.</p>
     end
     def render(context)
       if @class
-        source = &quot;&lt;figure class='#{@class}'&gt;&quot;
+        source = &#34;&lt;figure class=&#39;#{@class}&#39;&gt;&#34;
       else
-        source = &quot;&lt;figure&gt;&quot;
+        source = &#34;&lt;figure&gt;&#34;
       end
       if @link
-        source += &quot;&lt;a href=\&quot;#{@link}\&quot;&gt;&quot;
+        source += &#34;&lt;a href=\&#34;#{@link}\&#34;&gt;&#34;
       end
-      source += &quot;&lt;img src=\&quot;#{@url}\&quot;&gt;&quot;
+      source += &#34;&lt;img src=\&#34;#{@url}\&#34;&gt;&#34;
       if @link
-        source += &quot;&lt;/a&gt;&quot;
+        source += &#34;&lt;/a&gt;&#34;
       end
-      source += &quot;&lt;figcaption&gt;#{@caption}&lt;/figcaption&gt;&quot; if @caption
-      source += &quot;&lt;/figure&gt;&quot;
+      source += &#34;&lt;figcaption&gt;#{@caption}&lt;/figcaption&gt;&#34; if @caption
+      source += &#34;&lt;/figure&gt;&#34;
       source
     end
   end
 end
-Liquid::Template.register_tag('image', Jekyll::ImageTag)
+Liquid::Template.register_tag(&#39;image&#39;, Jekyll::ImageTag)
 </code></pre><p>Écrite en tant que shortcode Hugo:</p>
 <pre tabindex="0"><code>&lt;!-- image --&gt;
-&lt;figure {{ with .Get &quot;class&quot; }}class=&quot;{{.}}&quot;{{ end }}&gt;
-    {{ with .Get &quot;link&quot;}}&lt;a href=&quot;{{.}}&quot;&gt;{{ end }}
-        &lt;img src=&quot;{{ .Get &quot;src&quot; }}&quot;
-            {{ if or (.Get &quot;alt&quot;) (.Get &quot;caption&quot;) }}
-                alt=&quot;{{ with .Get &quot;alt&quot;}}
+&lt;figure {{ with .Get &#34;class&#34; }}class=&#34;{{.}}&#34;{{ end }}&gt;
+    {{ with .Get &#34;link&#34;}}&lt;a href=&#34;{{.}}&#34;&gt;{{ end }}
+        &lt;img src=&#34;{{ .Get &#34;src&#34; }}&#34;
+            {{ if or (.Get &#34;alt&#34;) (.Get &#34;caption&#34;) }}
+                alt=&#34;{{ with .Get &#34;alt&#34;}}
                         {{.}}
                      {{else}}
-                        {{ .Get &quot;caption&quot; }}
-                     {{ end }}&quot;
+                        {{ .Get &#34;caption&#34; }}
+                     {{ end }}&#34;
                {{ end }} /&gt;
-    {{ if .Get &quot;link&quot;}}&lt;/a&gt;{{ end }}
-    {{ if or (or (.Get &quot;title&quot;) (.Get &quot;caption&quot;)) (.Get &quot;attr&quot;)}}
-    &lt;figcaption&gt;{{ if isset .Params &quot;title&quot; }}
-        {{ .Get &quot;title&quot; }}{{ end }}
-        {{ if or (.Get &quot;caption&quot;) (.Get &quot;attr&quot;)}}&lt;p&gt;
-        {{ .Get &quot;caption&quot; }}
-        {{ with .Get &quot;attrlink&quot;}}&lt;a href=&quot;{{.}}&quot;&gt; {{ end }}
-            {{ .Get &quot;attr&quot; }}
-        {{ if .Get &quot;attrlink&quot;}}&lt;/a&gt; {{ end }}
+    {{ if .Get &#34;link&#34;}}&lt;/a&gt;{{ end }}
+    {{ if or (or (.Get &#34;title&#34;) (.Get &#34;caption&#34;)) (.Get &#34;attr&#34;)}}
+    &lt;figcaption&gt;{{ if isset .Params &#34;title&#34; }}
+        {{ .Get &#34;title&#34; }}{{ end }}
+        {{ if or (.Get &#34;caption&#34;) (.Get &#34;attr&#34;)}}&lt;p&gt;
+        {{ .Get &#34;caption&#34; }}
+        {{ with .Get &#34;attrlink&#34;}}&lt;a href=&#34;{{.}}&#34;&gt; {{ end }}
+            {{ .Get &#34;attr&#34; }}
+        {{ if .Get &#34;attrlink&#34;}}&lt;/a&gt; {{ end }}
         &lt;/p&gt; {{ end }}
     &lt;/figcaption&gt;
     {{ end }}
@@ -1317,22 +1316,22 @@ Liquid::Template.register_tag('image', Jekyll::ImageTag)
 <p>J&rsquo;ai simplement changé :</p>
 <pre tabindex="0"><code>{% image
     full http://farm5.staticflickr.com/4136/4829260124_57712e570a_o_d.jpg
-    &quot;One of my favorite touristy-type photos. I secretly waited for the
-    good light while we were &quot;having fun&quot; and took this. Only regret: a
+    &#34;One of my favorite touristy-type photos. I secretly waited for the
+    good light while we were &#34;having fun&#34; and took this. Only regret: a
     stupid pole in the top-left corner of the frame I had to clumsily get
-    rid of at post-processing.&quot;
+    rid of at post-processing.&#34;
     -&gt;http://www.flickr.com/photos/alexnormand/4829260124/in/
         set-72157624547713078/ %}
 </code></pre><p>pour cela (cet exemple utilise une version légèrement étendue nommée <code>fig</code>,
 différente de la <code>figure</code> intégrée) :</p>
-<pre tabindex="0"><code>{{% fig class=&quot;full&quot;
-    src=&quot;http://farm5.staticflickr.com/4136/4829260124_57712e570a_o_d.jpg&quot;
-    title=&quot;One of my favorite touristy-type photos. I secretly waited for the
+<pre tabindex="0"><code>{{% fig class=&#34;full&#34;
+    src=&#34;http://farm5.staticflickr.com/4136/4829260124_57712e570a_o_d.jpg&#34;
+    title=&#34;One of my favorite touristy-type photos. I secretly waited for the
     good light while we were having fun and took this. Only regret: a stupid
     pole in the top-left corner of the frame I had to clumsily get rid of at
-    post-processing.&quot;
-    link=&quot;http://www.flickr.com/photos/alexnormand/4829260124/in/
-            set-72157624547713078/&quot; %}}
+    post-processing.&#34;
+    link=&#34;http://www.flickr.com/photos/alexnormand/4829260124/in/
+            set-72157624547713078/&#34; %}}
 </code></pre><p>Comme bonus, les paramètres nommés des shortcodes sont plus lisibles.</p>
 <h2 id="touches-finales">Touches finales</h2>
 <h3 id="corriger-le-contenu">Corriger le contenu</h3>

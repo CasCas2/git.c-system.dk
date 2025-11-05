@@ -65,7 +65,7 @@ disableHugoGeneratorInject = false
 
   # Home subtitle of the index page.
   #
-  homeSubtitle = "Hello Friend NG"
+  homeSubtitle = "C-System – fra ide til koncept !!"
 
   # Set a background for the homepage
   # backgroundImage = "assets/images/background.jpg"
@@ -189,7 +189,7 @@ disableHugoGeneratorInject = false
     copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
 
   [languages.da]
-    subtitle  = "Hello Friend NG Theme"
+    subtitle  = "C-System – fra ide til koncept !!"
     weight    = 3
     copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
 

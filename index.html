@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Det vi bygger – C-System</title>
+<meta name="description" content="Open source og værktøjer fra C-System: en DNS-blokliste mod spil på privatskolers netværk, scripts til Proxmox og de systemer, vi udvikler til kunder og til vores egen drift.">
+<link rel="canonical" href="https://git.c-system.dk/">
+<link rel="icon" href="https://c-system.dk/wp-content/uploads/2017/05/Logo_sh-500-150x150.png" sizes="32x32">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="da_DK">
+<meta property="og:site_name" content="C-System">
+<meta property="og:title" content="Det vi bygger – C-System">
+<meta property="og:description" content="Open source og værktøjer fra C-System, og de systemer vi udvikler til kunder og til vores egen drift.">
+<meta property="og:url" content="https://git.c-system.dk/">
+<meta property="og:image" content="https://c-system.dk/wp-content/uploads/c-system/c-system-deling.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="fonts/red-hat-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family:"Red Hat Display"; src:url(fonts/red-hat-display-latin-wght-normal.woff2) format("woff2"); font-weight:300 900; font-display:swap; }
+@font-face { font-family:"Red Hat Text"; src:url(fonts/red-hat-text-latin-wght-normal.woff2) format("woff2"); font-weight:300 700; font-display:swap; }
+:root {
+  --ink:#1A202C; --text:#4A5568; --accent:#2B6CB0; --accent-dark:#215387; --soft:#EDF2F7; --line:#E2E8F0; --ok:#2F855A;
+  --head:"Red Hat Display", "Red Hat Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --body:"Red Hat Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+* { box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; }
+body { margin:0; background:#fff; color:var(--text); font-family:var(--body); font-size:1.05rem; line-height:1.7; }
+h1, h2, h3 { font-family:var(--head); color:var(--ink); line-height:1.2; margin:0 0 .5em; }
+p { margin:0 0 1em; }
+a { color:var(--accent); }
+a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+.wrap { max-width:1140px; margin:0 auto; padding:0 24px; }
+.narrow { max-width:760px; }
+
+/* Topbar */
+.top { background:#111827; }
+.top .wrap { display:flex; align-items:center; justify-content:space-between; gap:16px; height:76px; }
+.top img { display:block; height:44px; width:auto; }
+.top nav a { color:#fff; text-decoration:none; font-weight:600; font-size:.95rem; border:2px solid rgba(255,255,255,.45); border-radius:8px; padding:.55em 1.1em; }
+.top nav a:hover { border-color:#fff; }
+.top a:focus-visible, .hero a:focus-visible, .foot a:focus-visible { outline-color:#90CDF4; }
+
+/* Hero */
+.hero { color:#fff; padding:80px 0 72px; background:linear-gradient(135deg, #0C1220 0%, #111827 50%, #17335F 100%); }
+.hero h1 { color:#fff; font-size:clamp(2.2rem, 5vw, 3.4rem); line-height:1.1; letter-spacing:-.01em; margin-bottom:.45em; }
+.hero p { color:rgba(255,255,255,.88); font-size:clamp(1.1rem, 2vw, 1.3rem); line-height:1.6; max-width:720px; }
+
+/* Baand */
+.band { padding:72px 0; }
+.band-alt { background:var(--soft); }
+.band h2 { font-size:clamp(1.6rem, 3vw, 2.1rem); }
+.intro { max-width:720px; margin-bottom:36px; }
+
+/* Projekter */
+.projects { display:grid; grid-template-columns:repeat(2, 1fr); gap:24px; list-style:none; margin:0; padding:0; }
+.project { background:#fff; border:1px solid var(--line); border-radius:12px; padding:28px 28px 24px; display:flex; flex-direction:column; }
+.band-alt .project { border-color:#D5DEE8; }
+.project h3 { font-size:1.3rem; margin-bottom:.35em; }
+.project .meta { font-size:.9rem; color:#5B6577; margin-bottom:.9em; }
+.project p { font-size:1rem; }
+.project .link { margin-top:auto; padding-top:6px; font-weight:600; }
+.project .link a { text-decoration:none; }
+.project .link a:hover { text-decoration:underline; }
+
+/* Afslutning */
+.cta { background:#111827; color:#fff; padding:64px 0; }
+.cta h2 { color:#fff; max-width:640px; font-size:clamp(1.5rem, 3vw, 2rem); }
+.cta p { color:rgba(255,255,255,.85); max-width:640px; }
+.cta a { color:#fff; font-weight:600; }
+.foot { background:#0C1220; color:rgba(255,255,255,.7); font-size:.9rem; padding:22px 0; }
+.foot a { color:#fff; }
+
+@media (max-width: 800px) {
+  .projects { grid-template-columns:1fr; }
+  .hero { padding:56px 0 48px; }
+  .band { padding:52px 0; }
+}
+@media (max-width: 420px) {
+  .top img { height:36px; }
+  .top nav a { padding:.45em .8em; font-size:.9rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a href="https://c-system.dk/"><img src="https://c-system.dk/wp-content/uploads/2017/05/Logo_sh-bred-3.png" width="178" height="44" alt="C-System"></a>
+    <nav aria-label="Til hovedsiden"><a href="https://c-system.dk/">Til c-system.dk</a></nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>Det vi bygger</h1>
+      <p>Ud over den daglige drift udvikler vi værktøjer, både til vores kunder og til os selv. Noget deler vi frit som open source, andet bruger vi i vores egen drift eller hos kunderne.</p>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="open-source">
+    <div class="wrap">
+      <div class="intro">
+        <h2 id="open-source">Open source</h2>
+        <p>Det her ligger offentligt på GitHub. Brug det gerne.</p>
+      </div>
+      <ul class="projects">
+        <li class="project">
+          <h3>Blokliste mod spil på skolens netværk</h3>
+          <p class="meta">DNS-blokliste · fri licens (CC0)</p>
+          <p>En liste over browserspil, kopier af blokerede spilsider, .io-spil og cloud-gaming, som privatskoler kan blokere i deres DNS-filter, så netværket bliver brugt til undervisning. Listen er i det enkle hosts-format, som de fleste DNS-filtre kan læse, og den kontrolleres automatisk, hver gang den ændres.</p>
+          <p class="link"><a href="https://github.com/CasCas2/school-gaming-dns-blocklist">Se bloklisten på GitHub</a></p>
+        </li>
+        <li class="project">
+          <h3>Proxmox på Hetzner</h3>
+          <p class="meta">Scripts · bygger på xshok-proxmox</p>
+          <p>Vores tilpassede udgave af scripts til at installere og sætte Proxmox VE op på dedikerede servere hos Hetzner, med anbefalet diskopdeling og efterkonfiguration. Den bygger på open source-projektet xshok-proxmox.</p>
+          <p class="link"><a href="https://github.com/CasCas2/proxmox-hetzner">Se scripts på GitHub</a></p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band band-alt" aria-labelledby="udvikling">
+    <div class="wrap">
+      <div class="intro">
+        <h2 id="udvikling">Det arbejder vi på</h2>
+        <p>Systemer vi udvikler til kunder og til vores egen drift, og et enkelt eksperiment. Koden er ikke offentlig, men vil I høre mere om et af dem, så kontakt os.</p>
+      </div>
+      <ul class="projects">
+        <li class="project">
+          <h3>miniweb: hjemmesider uden besvær</h3>
+          <p>En platform, hvor små virksomheder selv bestiller en enkel hjemmeside. Ud fra kundens oplysninger laver AI et forslag til siden og kan hjælpe med tekster og billeder, og systemet opretter selv adresse, konto og besøgsstatistik. Siden kan også køre på kundens eget domæne.</p>
+        </li>
+        <li class="project">
+          <h3>Booking til håndværkere</h3>
+          <p>Kunden booker selv et besøg via et personligt link, mens virksomhedens sagssystem, Ordrestyring.dk, fortsat styrer sager, kunder og kalender. Hver virksomhed bruger sit eget fagord, så kunden ser maler, tømrer, VVS eller elektriker.</p>
+        </li>
+        <li class="project">
+          <h3>Fraværsregistrering til privatskoler</h3>
+          <p>Registrering af elevfravær for personale og administration. Systemet blev bygget til én skole og er siden gjort generelt, så det kan tilpasses andre privatskoler.</p>
+        </li>
+        <li class="project">
+          <h3>Infoskærme med central styring</h3>
+          <p>Informationsskærme på Raspberry Pi eller almindelige pc'er, styret ét sted fra med afspilningslister og tidsplaner pr. skærm. Skærmene viser videre fra lokal kopi, hvis netværket falder ud.</p>
+        </li>
+        <li class="project">
+          <h3>Vores eget driftsoverblik</h3>
+          <p>Et internt værktøj, der samler overvågning, backup, opdateringer og sikkerhedsfund for de systemer, vi driver, ét sted. Det giver os overblik og gør det muligt at reagere hurtigt.</p>
+        </li>
+        <li class="project">
+          <h3>Z-ALL: en AI, der lever sit eget liv</h3>
+          <p>Et eksperiment med en selvstændig AI-figur: et lille rumvæsen, der er nødlandet i en dansk kystskov. Z-ALL får aldrig opgaver, men vælger selv, hvad den vil, ud fra behov og humør. Den udforsker, tegner, bygger ting af det, den finder, sover om natten og skriver dagbog. Projektet er vores værksted for at lære, hvordan sprogmodeller kan bruges med omtanke og til en lav pris.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta" aria-labelledby="kontakt">
+    <div class="wrap">
+      <h2 id="kontakt">Vil I høre mere?</h2>
+      <p>Ring på <a href="tel:+4577340123">7734 0123</a> eller <a href="https://c-system.dk/kontakt/">skriv til os</a>. C-System er ekstern IT-afdeling for virksomheder, privatskoler og bosteder i Nordsjælland og København.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">C-System · Græsted · <a href="https://c-system.dk/">c-system.dk</a> · <a href="https://c-system.dk/privatlivspolitik/">Privatlivspolitik</a></div>
+</footer>
+
+</body>
+</html>

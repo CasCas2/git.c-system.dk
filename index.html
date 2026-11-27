@@ -197,6 +197,8 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
 .projects { display:grid; grid-template-columns:repeat(2, 1fr); gap:24px; list-style:none; margin:0; padding:0; }
 .project { background:#fff; border:1px solid var(--line); border-radius:12px; padding:28px 28px 24px; display:flex; flex-direction:column; }
 .band-alt .project { border-color:#D5DEE8; }
+.project { overflow:hidden; }
+.project .shot { display:block; width:calc(100% + 56px); max-width:none; height:auto; aspect-ratio:16/10; object-fit:cover; object-position:top left; margin:-28px -28px 24px; border-bottom:1px solid var(--line); background:var(--soft); }
 .project h3 { font-size:1.3rem; margin-bottom:.35em; }
 .project .meta { font-size:.9rem; color:#5B6577; margin-bottom:.9em; }
 .project p { font-size:1rem; }
@@ -249,24 +251,28 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
       </div>
       <ul class="projects">
         <li class="project">
+          <img class="shot" src="img/miniweb.webp" width="1040" height="650" alt="Forsiden af miniweb.dk med overskriften En enkel hjemmeside til jeres virksomhed og en skitse af et færdigt site." loading="lazy" decoding="async">
           <h3>miniweb: hjemmesider uden besvær</h3>
           <p class="status">I drift</p>
           <p>En platform, hvor små virksomheder selv bestiller en enkel hjemmeside. Ud fra kundens oplysninger laver AI et forslag til siden og kan hjælpe med tekster og billeder, og systemet opretter selv adresse, konto og besøgsstatistik. Siden kan også køre på kundens eget domæne.</p>
           <p class="link"><a href="https://miniweb.dk/">Se miniweb.dk</a></p>
         </li>
         <li class="project">
+          <img class="shot" src="img/ordreweb.webp" width="1040" height="650" alt="Kontorets ugekalender i Ordreweb med fire medarbejdere, bookede besøg i grønt og tilbudte tider i gult." loading="lazy" decoding="async">
           <h3>Ordreweb: kunden vælger selv tiden</h3>
           <p class="status">Lanceret</p>
           <p>Håndværkeren sender et link på SMS eller e-mail, og kunden vælger selv en tid, der passer i kalenderen. Besøget står i kalenderen med det samme, og påmindelsen går ud af sig selv. Virksomhedens sagssystem, Ordrestyring.dk, styrer fortsat sager, kunder og kalender. Til malere, tømrere, elektrikere, VVS og andre, der kører ud til kunden.</p>
           <p class="link"><a href="https://ordreweb.dk/">Se ordreweb.dk og prøv demoen</a></p>
         </li>
         <li class="project">
+          <img class="shot" src="img/fravaer.webp" width="1040" height="650" alt="Forsiden i Fravær med dagens registreringer, knappen Registrér fravær og listen over manglende registreringer." loading="lazy" decoding="async">
           <h3>Fraværsregistrering til privatskoler</h3>
           <p class="status">I drift</p>
           <p>Registrering af elevfravær for personale og administration. Systemet blev bygget til én skole og er siden gjort generelt, så det kan tilpasses andre privatskoler. Demoen er en opdigtet skole, som kan prøves som lærer, administrator, forælder eller elev uden at oprette en bruger.</p>
           <p class="link"><a href="https://fravær.dk/">Se fravær.dk</a> eller <a href="https://fravær.dk/#proev">prøv demoen</a></p>
         </li>
         <li class="project">
+          <img class="shot" src="img/infoskaerm.webp" width="1040" height="650" alt="Oversigten i Infoskærm med en ny skærm, der afventer godkendelse, og fem aktive skærme med status og tidsplan." loading="lazy" decoding="async">
           <h3>Infoskærm: digital signage med central styring</h3>
           <p class="status">I drift</p>
           <p>Informationsskærme på Raspberry Pi eller almindelige pc'er, styret ét sted fra med afspilningslister og tidsplaner pr. skærm. Skærmene viser videre fra lokal kopi, hvis netværket falder ud. Serveren kan stå hos jer, eller vi kan hoste den.</p>
@@ -278,6 +284,7 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
           <p>Et internt værktøj, der samler overvågning, backup, opdateringer og sikkerhedsfund for de systemer, vi driver, ét sted. Det giver os overblik og gør det muligt at reagere hurtigt.</p>
         </li>
         <li class="project">
+          <img class="shot" src="img/z-all.webp" width="1040" height="650" alt="Z-ALL: den lille lyserøde alien ved et stengærde i en skov, set fra forsiden af z-all.dk." loading="lazy" decoding="async">
           <h3>Z-ALL: en AI, der lever sit eget liv</h3>
           <p class="status">Åben for alle</p>
           <p>Et eksperiment med en selvstændig AI-figur: et lille rumvæsen, der lever sit eget liv i en skov ved havet. Det får aldrig opgaver, men vælger selv, hvad det vil, ud fra behov og humør. Det udforsker, tegner, bygger ting af det, det finder, sover om natten og skriver dagbog. På z-all.dk kan man følge med lige nu og skabe sit eget.</p>
@@ -318,11 +325,13 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
       </div>
       <ul class="projects">
         <li class="project">
+          <img class="shot" src="img/holdopstilling.webp" width="1040" height="650" alt="Forsiden af Holdopstilling med et eksempel på fire doubler stillet op efter point og beskeden Styrkeordenen holder." loading="lazy" decoding="async">
           <h3>Holdopstilling i badminton</h3>
           <p>Til holdledere i holdturneringen. Vælg dagens spillere, så henter siden deres aktuelle point fra badmintonplayer.dk, sætter holdet efter reglerne for rækken og giver en tekst, der kan sendes på Messenger eller SMS.</p>
           <p class="link"><a href="https://sbh.miniweb.dk/">Se Holdopstilling</a></p>
         </li>
         <li class="project">
+          <img class="shot" src="img/boligberegner.webp" width="1040" height="650" alt="Forsiden af Boligberegner med to lejeboliger sammenlignet på rådighedsbeløb, indflytningspris og cykeltid." loading="lazy" decoding="async">
           <h3>Boligberegner</h3>
           <p>Hjælper med at vurdere, hvor dyr en lejebolig man har råd til, ud fra rådighedsbeløbet efter skat og en sikkerhedsbuffer, som man selv indstiller. Idéen kom fra en studerende, der skulle flytte til Jylland.</p>
           <p class="link"><a href="https://lb.c-system.dk/">Se Boligberegner</a></p>
